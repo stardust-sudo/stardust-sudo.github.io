@@ -6,7 +6,7 @@
   <link href="https://stardust-sudo.github.io/atom.xml" rel="self"/>
   
   <link href="https://stardust-sudo.github.io/"/>
-  <updated>2022-04-06T13:52:15.793Z</updated>
+  <updated>2022-04-06T14:02:40.308Z</updated>
   <id>https://stardust-sudo.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://stardust-sudo.github.io/2022/04/06/ea26c573cd2c/"/>
-    <id>https://stardust-sudo.github.io/2022/04/06/ea26c573cd2c/</id>
-    <published>2022-04-06T13:10:03.000Z</published>
-    <updated>2022-04-06T13:52:15.793Z</updated>
+    <link href="https://stardust-sudo.github.io/2022/04/06/309f988a7b76/"/>
+    <id>https://stardust-sudo.github.io/2022/04/06/309f988a7b76/</id>
+    <published>2022-04-05T16:00:00.000Z</published>
+    <updated>2022-04-06T14:02:40.308Z</updated>
     
     <content type="html"><![CDATA[<p><strong>Hello World</strong></p>]]></content>
     
@@ -30,6 +30,104 @@
       
     <summary type="html">&lt;p&gt;&lt;strong&gt;Hello World&lt;/strong&gt;&lt;/p&gt;
 </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Eclipse快捷键</title>
+    <link href="https://stardust-sudo.github.io/2022/04/06/54ba3909c8c4/"/>
+    <id>https://stardust-sudo.github.io/2022/04/06/54ba3909c8c4/</id>
+    <published>2022-04-05T16:00:00.000Z</published>
+    <updated>2022-04-06T14:03:47.241Z</updated>
+    
+    <content type="html"><![CDATA[<p>Eclipse中的快捷键：</p><ol><li><p>补全代码的声明：alt + &#x2F;</p></li><li><p>快速修复: ctrl + 1  </p></li><li><p>批量导包：ctrl + shift + o</p></li><li><p>使用单行注释：ctrl + &#x2F;</p></li><li><p>使用多行注释： ctrl + shift + &#x2F;   </p></li><li><p>取消多行注释：ctrl + shift + \</p></li><li><p>复制指定行的代码：ctrl + alt + down 或 ctrl + alt + up</p></li><li><p>删除指定行的代码：ctrl + d</p></li><li><p>上下移动代码：alt + up  或 alt + down</p></li><li><p>切换到下一行代码空位：shift + enter</p></li><li><p>切换到上一行代码空位：ctrl + shift + enter</p></li><li><p>如何查看源码：ctrl + 选中指定的结构   或  ctrl + shift + t</p></li><li><p>退回到前一个编辑的页面：alt + left </p></li><li><p>进入到下一个编辑的页面(针对于上面那条来说的)：alt + right</p></li><li><p>光标选中指定的类，查看继承树结构：ctrl + t</p></li><li><p>复制代码： ctrl + c</p></li><li><p>撤销： ctrl + z</p></li><li><p>反撤销： ctrl + y</p></li><li><p>剪切：ctrl + x </p></li><li><p>粘贴：ctrl + v</p></li><li><p>保存： ctrl + s</p></li><li><p>全选：ctrl + a</p></li><li><p>格式化代码： ctrl + shift + f</p></li><li><p>选中数行，整体往后移动：tab</p></li><li><p>选中数行，整体往前移动：shift + tab</p></li><li><p>在当前类中，显示类结构，并支持搜索指定的方法、属性等：ctrl + o</p></li><li><p>批量修改指定的变量名、方法名、类名等：alt + shift + r</p></li><li><p>选中的结构的大小写的切换：变成大写： ctrl + shift + x</p></li><li><p>选中的结构的大小写的切换：变成小写：ctrl + shift + y</p></li><li><p>调出生成getter&#x2F;setter&#x2F;构造器等结构： alt + shift + s</p></li><li><p>显示当前选择资源(工程 or 文件)的属性：alt + enter</p></li><li><p>快速查找：参照选中的Word快速定位到下一个 ：ctrl + k</p></li><li><p>关闭当前窗口：ctrl + w</p></li><li><p>关闭所有的窗口：ctrl + shift + w</p></li><li><p>查看指定的结构使用过的地方：ctrl + alt + g</p></li><li><p>查找与替换：ctrl + f</p></li><li><p>最大化当前的View：ctrl + m</p></li><li><p>直接定位到当前行的首位：home</p></li><li><p>直接定位到当前行的末位：end</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Eclipse中的快捷键：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;补全代码的声明：alt + &amp;#x2F;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;快速修复: ctrl + 1  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;批量导包：ctrl + shift + o&lt;/p&gt;
+&lt;/li&gt;
+&lt;li</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown常用语法</title>
+    <link href="https://stardust-sudo.github.io/2022/04/06/0b8256994f2a/"/>
+    <id>https://stardust-sudo.github.io/2022/04/06/0b8256994f2a/</id>
+    <published>2022-04-05T16:00:00.000Z</published>
+    <updated>2022-04-06T14:02:16.045Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>#一级标题</p><p>##二级标题</p><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>&gt;引用</p><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>-列项1</p><p>-列项2</p><p>-列项3</p><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>1.列项1</p><p>2.列项2</p><p>3.列项3</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>`&#96;&#96;java 回车</p><h3 id="内连代码"><a href="#内连代码" class="headerlink" title="内连代码"></a>内连代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`System.out.println()` </span><br></pre></td></tr></table></figure><h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><h3 id="公式块"><a href="#公式块" class="headerlink" title="公式块"></a>公式块</h3><p>$$ 回车</p><p>数学公式使用latex输入</p><h3 id="内连公式"><a href="#内连公式" class="headerlink" title="内连公式"></a>内连公式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$latex$</span><br></pre></td></tr></table></figure><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>|列名1|列名2| 回车</p><h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Java[^脚注]</span><br><span class="line">[^脚注]: 一种编程语言</span><br></pre></td></tr></table></figure><h2 id="水平分割线"><a href="#水平分割线" class="headerlink" title="水平分割线"></a>水平分割线</h2><p>— 回车</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[toc] 回车</p><p>toc：table of content</p><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="内联链接"><a href="#内联链接" class="headerlink" title="内联链接"></a>内联链接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[bing搜索]([www.bing.com](http://www.bing.com/) “必应&quot;)</span><br></pre></td></tr></table></figure><p>鼠标悬停在bing搜索上会显示必应</p><h3 id="内部链接"><a href="#内部链接" class="headerlink" title="内部链接"></a>内部链接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[内部链接](#标题-1)</span><br></pre></td></tr></table></figure><p>点击内部链接跳转到标题 1</p><h3 id="引用链接"><a href="#引用链接" class="headerlink" title="引用链接"></a>引用链接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[bing链接][bing]</span><br><span class="line">[bing]: www.bing.com</span><br></pre></td></tr></table></figure><h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;www.bing.com&gt;</span><br></pre></td></tr></table></figure><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片](/path/to/img.jpg)</span><br></pre></td></tr></table></figure><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br></pre></td></tr></table></figure><h2 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**加粗**</span><br></pre></td></tr></table></figure><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure><h2 id="和-需要加-转义"><a href="#和-需要加-转义" class="headerlink" title="*和_需要加\转义"></a>*和_需要加\转义</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;#一级标题&lt;/p&gt;
+&lt;p&gt;##二级标题&lt;/p&gt;
+&lt;h2 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; t</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>debug</title>
+    <link href="https://stardust-sudo.github.io/2022/04/06/953f2439097f/"/>
+    <id>https://stardust-sudo.github.io/2022/04/06/953f2439097f/</id>
+    <published>2022-04-05T16:00:00.000Z</published>
+    <updated>2022-04-06T14:03:25.575Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>System.out.println()</li><li>打断点调试<ul><li>step over：跳过代码</li><li>step into：进入方法</li><li>step return：离开方法返回</li><li>resume：执行到下一个断点或者直接结束</li><li>drop to frame：跳到方法首行</li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;System.out.println()&lt;/li&gt;
+&lt;li&gt;打断点调试&lt;ul&gt;
+&lt;li&gt;step over：跳过代码&lt;/li&gt;
+&lt;li&gt;step into：进入方法&lt;/li&gt;
+&lt;li&gt;step return：离开方法返回&lt;/li&gt;
+&lt;li&gt;resume：执行到下</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>win命令行指令</title>
+    <link href="https://stardust-sudo.github.io/2022/04/06/8c8d6c759445/"/>
+    <id>https://stardust-sudo.github.io/2022/04/06/8c8d6c759445/</id>
+    <published>2022-04-05T16:00:00.000Z</published>
+    <updated>2022-04-06T14:02:30.908Z</updated>
+    
+    <content type="html"><![CDATA[<p>上下键可调出最近使用的命令</p><p>转到D盘</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) C:\Users\boneScription&gt;d:</span><br></pre></td></tr></table></figure><p>查看D盘下文件目录（dir-directory-目录）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\&gt;dir</span><br><span class="line"> 驱动器 D 中的卷是 Data</span><br><span class="line"> 卷的序列号是 8E70-B4EE</span><br><span class="line"></span><br><span class="line"> D:\ 的目录</span><br><span class="line"></span><br><span class="line">2022/03/19  21:39    &lt;DIR&gt;          7SUCLOUD</span><br><span class="line">2021/05/19  07:57    &lt;DIR&gt;          apache-maven-3.6.3</span><br><span class="line">2022/03/18  06:18    &lt;DIR&gt;          BaiduNetdiskDownload</span><br><span class="line">2021/03/28  18:23    &lt;DIR&gt;          comma2k19</span><br><span class="line">......</span><br><span class="line">               1 个文件  4,446,390,272 字节</span><br><span class="line">              19 个目录 285,296,730,112 可用字节</span><br></pre></td></tr></table></figure><p>创建名叫java的文件夹（md-make directory）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\&gt;md java</span><br></pre></td></tr></table></figure><p>进入java文件夹（cd-change directory）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\&gt;cd java</span><br><span class="line">(base) D:\&gt;cd d:\java</span><br></pre></td></tr></table></figure><p>退出文件夹</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;cd..</span><br></pre></td></tr></table></figure><p>回到D盘符下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;cd\</span><br><span class="line"></span><br><span class="line">(base) d:\&gt;</span><br></pre></td></tr></table></figure><p>创建md文件，并且输入内容（\br表示回车）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;echo #head\br&gt;1.md</span><br></pre></td></tr></table></figure><p>删除文件（del-delete）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;del 1.md</span><br></pre></td></tr></table></figure><p>删除以.txt结尾的文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;del  *.txt</span><br></pre></td></tr></table></figure><p>删除空的文件夹（rd-remove directory）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1&gt;rd team2</span><br></pre></td></tr></table></figure><p>删除非空的文件夹</p><ol><li>del 文件夹中的文件</li><li>rd 文件夹</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1&gt;del team1</span><br><span class="line">d:\java\class1\team1\*, 是否确认(Y/N)? y</span><br><span class="line"></span><br><span class="line">(base) d:\java\class1&gt;rd team1</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;上下键可调出最近使用的命令&lt;/p&gt;
+&lt;p&gt;转到D盘&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre</summary>
       
     
     

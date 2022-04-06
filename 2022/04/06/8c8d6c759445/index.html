@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>win命令行指令 • stardust's blog</title><meta name="description" content="win命令行指令 - stardust"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="stardust's blog"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="stardust's blog" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="stardust's blog"><img class="logo-image" src="/logo.svg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">ABOUT</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">win命令行指令</h1><div class="post-info"><a></a>2022-04-06</div><div class="post-content"><p>上下键可调出最近使用的命令</p>
+<p>转到D盘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) C:\Users\boneScription&gt;d:</span><br></pre></td></tr></table></figure>
+
+<p>查看D盘下文件目录（dir-directory-目录）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\&gt;dir</span><br><span class="line"> 驱动器 D 中的卷是 Data</span><br><span class="line"> 卷的序列号是 8E70-B4EE</span><br><span class="line"></span><br><span class="line"> D:\ 的目录</span><br><span class="line"></span><br><span class="line">2022/03/19  21:39    &lt;DIR&gt;          7SUCLOUD</span><br><span class="line">2021/05/19  07:57    &lt;DIR&gt;          apache-maven-3.6.3</span><br><span class="line">2022/03/18  06:18    &lt;DIR&gt;          BaiduNetdiskDownload</span><br><span class="line">2021/03/28  18:23    &lt;DIR&gt;          comma2k19</span><br><span class="line">......</span><br><span class="line">               1 个文件  4,446,390,272 字节</span><br><span class="line">              19 个目录 285,296,730,112 可用字节</span><br></pre></td></tr></table></figure>
+
+<p>创建名叫java的文件夹（md-make directory）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\&gt;md java</span><br></pre></td></tr></table></figure>
+
+<p>进入java文件夹（cd-change directory）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) D:\&gt;cd java</span><br><span class="line">(base) D:\&gt;cd d:\java</span><br></pre></td></tr></table></figure>
+
+<p>退出文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;cd..</span><br></pre></td></tr></table></figure>
+
+<p>回到D盘符下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;cd\</span><br><span class="line"></span><br><span class="line">(base) d:\&gt;</span><br></pre></td></tr></table></figure>
+
+<p>创建md文件，并且输入内容（\br表示回车）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;echo #head\br&gt;1.md</span><br></pre></td></tr></table></figure>
+
+<p>删除文件（del-delete）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;del 1.md</span><br></pre></td></tr></table></figure>
+
+<p>删除以.txt结尾的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1\team1&gt;del  *.txt</span><br></pre></td></tr></table></figure>
+
+<p>删除空的文件夹（rd-remove directory）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1&gt;rd team2</span><br></pre></td></tr></table></figure>
+
+<p>删除非空的文件夹</p>
+<ol>
+<li>del 文件夹中的文件</li>
+<li>rd 文件夹</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(base) d:\java\class1&gt;del team1</span><br><span class="line">d:\java\class1\team1\*, 是否确认(Y/N)? y</span><br><span class="line"></span><br><span class="line">(base) d:\java\class1&gt;rd team1</span><br></pre></td></tr></table></figure>
+
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/06/953f2439097f/">prev</a></div><div class="copyright"><p>&copy; 2022 <a href="https://stardust-sudo.github.io">stardust</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>
