@@ -6,7 +6,7 @@
   <link href="https://stardust-sudo.github.io/atom.xml" rel="self"/>
   
   <link href="https://stardust-sudo.github.io/"/>
-  <updated>2022-04-07T04:34:01.470Z</updated>
+  <updated>2022-04-07T04:36:55.590Z</updated>
   <id>https://stardust-sudo.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://stardust-sudo.github.io/2022/04/07/367e2aa3631c/"/>
+    <id>https://stardust-sudo.github.io/2022/04/07/367e2aa3631c/</id>
+    <published>2022-04-07T04:36:55.000Z</published>
+    <updated>2022-04-07T04:36:55.590Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Java基础编程</title>
