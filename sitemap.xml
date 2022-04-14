@@ -2,45 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://stardust-sudo.github.io/2022/04/13/0b9cc296a7c2/</loc>
-    
-    <lastmod>2022-04-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://stardust-sudo.github.io/2022/04/12/1425c35edba6/</loc>
-    
-    <lastmod>2022-04-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://stardust-sudo.github.io/2022/04/11/4ed7ae8cfab3/</loc>
-    
-    <lastmod>2022-04-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://stardust-sudo.github.io/2022/04/08/66f37bd3de7e/</loc>
-    
-    <lastmod>2022-04-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://stardust-sudo.github.io/2022/04/05/3e8297d6e1a6/</loc>
     
-    <lastmod>2022-04-08</lastmod>
+    <lastmod>2022-04-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,15 +14,6 @@
     <loc>https://stardust-sudo.github.io/about/index.html</loc>
     
     <lastmod>2022-04-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://stardust-sudo.github.io/2022/04/07/065fe70ff90f/</loc>
-    
-    <lastmod>2022-04-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -112,7 +67,7 @@
 
   <url>
     <loc>https://stardust-sudo.github.io/</loc>
-    <lastmod>2022-04-13</lastmod>
+    <lastmod>2022-04-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
