@@ -52,7 +52,7 @@
 <li>setPriority(int p)</li>
 </ul>
 <p>高优先级的线程要抢占低优先级的线的CPU执行权，但是只是从概率上讲，高优先级的线程高概率的情况下被执行，并不意味着只有当高优先级的线程执行完，低优先级的线程才执行</p>
-<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p><img src="/./Java%E9%AB%98%E9%98%B6%E7%BC%96%E7%A8%8B/threadLifecycle.png" alt="threadLifecycle"></p>
+<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><p><img src="/Java%E9%AB%98%E9%98%B6%E7%BC%96%E7%A8%8B/threadLifecycle.png" alt="threadLifecycle"></p>
 <h2 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h2><p>线程安全问题源于多线程操纵共享数据，解决线程安全问题有三种方法</p>
 <h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(同步监视器)&#123;</span><br><span class="line">    <span class="comment">//需要被同步的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
