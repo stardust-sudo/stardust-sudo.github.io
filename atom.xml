@@ -6,7 +6,7 @@
   <link href="https://stardust-sudo.github.io/atom.xml" rel="self"/>
   
   <link href="https://stardust-sudo.github.io/"/>
-  <updated>2022-04-29T03:48:27.769Z</updated>
+  <updated>2022-04-29T07:48:52.108Z</updated>
   <id>https://stardust-sudo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创建和管理表 尚硅谷MySQL入门到高级-宋红康版笔记</title>
+    <link href="https://stardust-sudo.github.io/2022/04/29/20b5e354c5ec/"/>
+    <id>https://stardust-sudo.github.io/2022/04/29/20b5e354c5ec/</id>
+    <published>2022-04-29T07:48:23.000Z</published>
+    <updated>2022-04-29T07:48:52.108Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="一条数据存储的过程"><a href="#一条数据存储的过程" class="headerlink" title="一条数据存储的过程"></a>一条数据存储的过程</h2><ol><li>创建数据库</li><li>确认字段</li><li>创建数据表</li><li>插入数据</li></ol><h2 id="MySQL中的数据类型"><a href="#MySQL中的数据类型" class="headerlink" title="MySQL中的数据类型"></a>MySQL中的数据类型</h2><p>整数类型 INT</p><p>定点数 DECIMAL，比如DECIMAL(M,D)，M&#x3D;整数位+小数位，D&#x3D;小数位</p><p>日期时间类型 DATE。格式 YYYY-MM-DD</p><p>文本字符串类型 VARCHAR，比如 VARCHAR(10)，表示十个字符的字符串，如果插入数据大于10，会截断插入的字符串</p><h1 id="创建和管理数据库"><a href="#创建和管理数据库" class="headerlink" title="创建和管理数据库"></a>创建和管理数据库</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE 数据库名;</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE 数据库名 <span class="type">CHARACTER</span> <span class="keyword">SET</span> 字符集;</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> 数据库名;#推荐使用</span><br></pre></td></tr></table></figure><h2 id="管理数据库"><a href="#管理数据库" class="headerlink" title="管理数据库"></a>管理数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> DATABASE dbtest1\G#查看创建数据库的信息，\G表示行的形式展示</span><br><span class="line">USE dbtest1;</span><br><span class="line"><span class="keyword">SHOW</span> TABLES;</span><br><span class="line"><span class="keyword">SELECT</span> DATABASE() <span class="keyword">FROM</span> DUAL#查看当前使用的数据库</span><br><span class="line"><span class="keyword">SHOW</span> TABLES <span class="keyword">FROM</span> dbtest2;#查看指定数据库下保存的数据表</span><br></pre></td></tr></table></figure><h2 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> DATABASE dbtest1 <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="string">&#x27;utf8&#x27;</span>;</span><br></pre></td></tr></table></figure><h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE dbtest1;</span><br><span class="line"><span class="keyword">DROP</span> DATABASE IF <span class="keyword">EXISTS</span> dbtest1;</span><br></pre></td></tr></table></figure><h1 id="创建和管理表"><a href="#创建和管理表" class="headerlink" title="创建和管理表"></a>创建和管理表</h1><h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> myemp1(</span><br><span class="line">id <span class="type">int</span>,</span><br><span class="line">emp_name <span class="type">varchar</span>(<span class="number">15</span>),</span><br><span class="line">hire_date <span class="type">date</span> </span><br><span class="line">);</span><br><span class="line"><span class="keyword">DESC</span> myemp1;#查看表结构</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> myemp1\G#查看创建表的信息，\G表示行的形式展示</span><br></pre></td></tr></table></figure> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#基于现有表创建新表，新表中导入旧表的数据</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> myemp2</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> employee_id,last_name,salary</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure><h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#添加一个字段</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line"><span class="keyword">ADD</span> salary <span class="type">decimal</span>(<span class="number">10</span>,<span class="number">2</span>);</span><br><span class="line">#添加一个字段</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line"><span class="keyword">ADD</span> salary <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">2</span>);#默认添加到表中的最后一个字段的位置</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line"><span class="keyword">ADD</span> phone_number <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">FIRST</span>;#默认添加到表中的第一个字段的位置</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line"><span class="keyword">ADD</span> email <span class="type">VARCHAR</span>(<span class="number">45</span>) AFTER emp_name;#默认添加到表中的emp_name后面的位置</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#修改一个字段</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line">MODIFY emp_name <span class="type">VARCHAR</span>(<span class="number">25</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;abc&#x27;</span>;</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#重命名一个字段</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line">CHANGE salary monthly_salary <span class="type">decimal</span>(<span class="number">10</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#删除一个字段</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> myemp1</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> email;</span><br></pre></td></tr></table></figure><h2 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#重命名表</span><br><span class="line">RENAME <span class="keyword">TABLE</span> myemp1</span><br><span class="line"><span class="keyword">TO</span> myempl1;</span><br></pre></td></tr></table></figure><h2 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#删除表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> myemp2;</span><br></pre></td></tr></table></figure><h2 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#清空表数据，保留表结构</span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> employee_copy;</span><br></pre></td></tr></table></figure><h1 id="DCL中COMMIT和ROLLBACK"><a href="#DCL中COMMIT和ROLLBACK" class="headerlink" title="DCL中COMMIT和ROLLBACK"></a>DCL中COMMIT和ROLLBACK</h1><p>COMMIT：提交数据，一旦执行COMMIT，则数据被永久保存在数据库中，数据不可以回滚</p><p>ROLLBACK：回滚数据，一旦执行ROLLBACK，则可以实现数据的回滚，回滚到最近的一次COMMIT之后</p><h1 id="对比TRUNCATE-TABLE与DELETE-FROM"><a href="#对比TRUNCATE-TABLE与DELETE-FROM" class="headerlink" title="对比TRUNCATE TABLE与DELETE FROM"></a>对比TRUNCATE TABLE与DELETE FROM</h1><p>相同点：都可以实现对表中所有数据的删除，同时保留表结构</p><p>不同点：</p><ul><li>TRUNCATE TABLE 一旦执行此操作，表数据全部清除，同时，数据不可以回滚</li><li>DELETE FROM 一旦执行此操作，表数据可以全部清除，同时，数据可以回滚</li></ul><h1 id="对比DDL和DML"><a href="#对比DDL和DML" class="headerlink" title="对比DDL和DML"></a>对比DDL和DML</h1><p>DDL的操作一旦执行，就不可以回滚</p><p>DML默认情况下，一旦执行了，也不可以回滚，但是在如果在执行DML之前，执行了<code>SET autocommit =  FALSE</code>，则执行的DML操作可以实现回滚</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"><span class="keyword">SET</span> autocommit <span class="operator">=</span> <span class="literal">FALSE</span>;</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> myemp;</span><br><span class="line"><span class="keyword">ROLLBACK</span>;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h1&gt;&lt;h2 id=&quot;一条数据存储的过程&quot;&gt;&lt;a href=&quot;#一条数据存储的过程&quot; class=&quot;headerlink&quot; title=</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>搬家前的记念</title>
@@ -424,30 +444,6 @@
 &lt;li&gt;&lt;p&gt;批量导包：ctrl + shift + o&lt;/p&gt;
 &lt;/li&gt;
 &lt;li</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://stardust-sudo.github.io/2022/04/05/3e8297d6e1a6/"/>
-    <id>https://stardust-sudo.github.io/2022/04/05/3e8297d6e1a6/</id>
-    <published>2022-04-05T07:09:55.000Z</published>
-    <updated>2022-04-14T05:26:18.705Z</updated>
-    
-    <content type="html"><![CDATA[<p>开启这个个人博客的原因：</p><ul><li>平时学习笔记都放在本地，电脑不在身边，查找起来不方便，放在博客上，使用任何联网终端都可以访问</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;开启这个个人博客的原因：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;平时学习笔记都放在本地，电脑不在身边，查找起来不方便，放在博客上，使用任何联网终端都可以访问&lt;/li&gt;
-&lt;/ul&gt;
-</summary>
       
     
     
