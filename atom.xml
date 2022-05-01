@@ -6,7 +6,7 @@
   <link href="https://stardust-sudo.github.io/atom.xml" rel="self"/>
   
   <link href="https://stardust-sudo.github.io/"/>
-  <updated>2022-04-30T13:55:54.768Z</updated>
+  <updated>2022-05-01T07:35:20.231Z</updated>
   <id>https://stardust-sudo.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL数据类型 尚硅谷MySQL入门到高级-宋红康版笔记</title>
+    <link href="https://stardust-sudo.github.io/2022/05/01/406104bf9d2c/"/>
+    <id>https://stardust-sudo.github.io/2022/05/01/406104bf9d2c/</id>
+    <published>2022-05-01T07:35:55.000Z</published>
+    <updated>2022-05-01T07:35:20.231Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h1><h2 id="类型介绍"><a href="#类型介绍" class="headerlink" title="类型介绍"></a>类型介绍</h2><p>TINYINT&#x2F;SMALLINT&#x2F;MEDIUMINT&#x2F;INT&#x2F;BIGINT</p><h2 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h2><h3 id="M"><a href="#M" class="headerlink" title="M"></a>M</h3><p>M表示显示宽度，M的取值范围是(0,255)，例如**INT(5)**，当数据宽度小于5位的时候，在数字前面需要用字符填满宽度。该功能需要配合”ZEROFILL“使用，表示用”0“填满宽度，使用”ZEROFILL“时，数据类型自动UNSIGNED。插入数据超过显示宽度，仍旧按照类型的实际宽度进行保存。</p><h3 id="UNSIGNED"><a href="#UNSIGNED" class="headerlink" title="UNSIGNED"></a>UNSIGNED</h3><p>无符号数</p><h3 id="ZEROFILL"><a href="#ZEROFILL" class="headerlink" title="ZEROFILL"></a>ZEROFILL</h3><p>INT(M) UNSIGNED ZEROFILL 表示数据不够M位时，用0在左边填充，使用”ZEROFILL“时，数据类型自动UNSIGNED。</p><h1 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h1><p>由于使用浮点数存在精度误差，所以使用定点数DECIMAL</p><h2 id="类型介绍-1"><a href="#类型介绍-1" class="headerlink" title="类型介绍"></a>类型介绍</h2><ul><li><p>DECIMAL(M,D)：M称为精度，M&#x3D;整数位+小数位；D称为标度，表示小数位</p></li><li><p>定点数在MySQL内部以字符串的形式存储，这就决定了它一定是精准的</p></li><li><p>默认DECIMAL(10,0)</p></li></ul><h1 id="日期与时间类型"><a href="#日期与时间类型" class="headerlink" title="日期与时间类型"></a>日期与时间类型</h1><p>YEAR ”YYYY“</p><p>DATE “YYYY-MM-DD”，使用CURRENT_DATE()或者NOW()会插入当前系统的日期</p><p>TIME “HH-MM-SS”，使用CURRENT_TIME()或者NOW()会插入当前系统的时间</p><p>DATETIME “YYYY-MM-DD HH:MM:SS”，使用CURRENT_TIMESTAMP()或者NOW()会插入当前系统的时间</p><p>TIMESTAMP “YYYY-MM-DD HH:MM:SS”，存储空间比DATETIME小得多，根据时区发生变化</p><p><strong>DATETIME使用得最多，注册时间和商品发布时间建议使用TIMESTAMP，TIMESTAMP方便计算，UNIX_TIMESTAMP()</strong></p><h1 id="文本字符串类型"><a href="#文本字符串类型" class="headerlink" title="文本字符串类型"></a>文本字符串类型</h1><h2 id="CHAR-x2F-VARCHAR"><a href="#CHAR-x2F-VARCHAR" class="headerlink" title="CHAR&#x2F;VARCHAR"></a>CHAR&#x2F;VARCHAR</h2><p><strong>CHAR(M)</strong> 固定长度为M位，如果字符串实际长度比M小，会在右侧填充空格以达到指定的长度，检索CHAR类型数据时，会去除尾部空格</p><p><strong>VARCHAR(M)</strong> 可变长度，实际存储空间大小由插入字符串长度决定</p><h2 id="TEXT"><a href="#TEXT" class="headerlink" title="TEXT"></a>TEXT</h2><p>TINYTEXT&#x2F;TEXT&#x2F;MEDIUMTEXT&#x2F;LONGTEXT</p><h1 id="二进制字符串类型"><a href="#二进制字符串类型" class="headerlink" title="二进制字符串类型"></a>二进制字符串类型</h1><p>可以用来存储二进制数据，比如可以存储图片、音频和视频</p><h2 id="BINARY-x2F-VARBINARY"><a href="#BINARY-x2F-VARBINARY" class="headerlink" title="BINARY&#x2F;VARBINARY"></a>BINARY&#x2F;VARBINARY</h2><p>类似于CHAR&#x2F;VARCHAR，注意BINARY(M)中的M表示字符数而不是字节数</p><h2 id="BLOB类型"><a href="#BLOB类型" class="headerlink" title="BLOB类型"></a>BLOB类型</h2><p>TINYBLOB&#x2F;BLOB&#x2F;MEDIUMBLOB&#x2F;LONGBLOB</p><p>实际工作中，图片、音频和视频存储在服务器的磁盘上，图片、音频和视频的访问路径存储到MySQL中</p><h1 id="JSON类型"><a href="#JSON类型" class="headerlink" title="JSON类型"></a>JSON类型</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> test_json(</span><br><span class="line">js json</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> test_json(js)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line">(<span class="string">&#x27;&#123;&quot;name&quot;:&quot;Tom&quot;,&quot;age&quot;:18,&quot;address&quot;:&#123;&quot;province&quot;:&quot;Shanghai&quot;,&quot;city&quot;:&quot;Shanghai&quot;&#125;&#125;&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test_json;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> js<span class="operator">-</span><span class="operator">&gt;</span><span class="string">&#x27;$.name&#x27;</span> <span class="keyword">as</span> `name`,js<span class="operator">-</span><span class="operator">&gt;</span><span class="string">&#x27;$.age&#x27;</span> <span class="keyword">as</span> age,js<span class="operator">-</span><span class="operator">&gt;</span><span class="string">&#x27;$.address.province&#x27;</span> <span class="keyword">as</span> province,js<span class="operator">-</span><span class="operator">&gt;</span><span class="string">&#x27;$.address.city&#x27;</span> <span class="keyword">as</span> city</span><br><span class="line"><span class="keyword">from</span> test_json;</span><br></pre></td></tr></table></figure><h1 id="小结及选择建议"><a href="#小结及选择建议" class="headerlink" title="小结及选择建议"></a>小结及选择建议</h1><p>在定义数据类型的时候，如果确定是整数，就用INT；如果是小数，使用定点数类型DECIMAL(M,D)；如果是日期与时间，就用DATETIME</p><p>阿里巴巴《Java开发手册》之MySQL数据库：</p><ul><li>字段非负数，则定义为UNSIGNED</li><li>小数类型使用DECIMAL，禁止使用FLOAT和DOUBLE<ul><li>在存储的时候，FLOAT和DOUBLE都存在精度损失的问题，在比较值的时候，得到不正确的结果</li><li>如果存储的数据范围超过DECIMAL的范围，建议将数据拆成整数和小数分别存储</li></ul></li><li>如果存储的字符串长度几乎相等，使用CHAR定长字符串类型</li><li>VARCHAR长度不超过5000，存储长度超过5000，使用TEXT，独立出来一张表</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;整数类型&quot;&gt;&lt;a href=&quot;#整数类型&quot; class=&quot;headerlink&quot; title=&quot;整数类型&quot;&gt;&lt;/a&gt;整数类型&lt;/h1&gt;&lt;h2 id=&quot;类型介绍&quot;&gt;&lt;a href=&quot;#类型介绍&quot; class=&quot;headerlink&quot; title=&quot;类型介绍&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数据处理之增删改 尚硅谷MySQL入门到高级-宋红康版笔记</title>
@@ -410,32 +430,6 @@
     <summary type="html">&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;p&gt;#一级标题&lt;/p&gt;
 &lt;p&gt;##二级标题&lt;/p&gt;
 &lt;h2 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; t</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>debug</title>
-    <link href="https://stardust-sudo.github.io/2022/04/06/15e9b9396bcb/"/>
-    <id>https://stardust-sudo.github.io/2022/04/06/15e9b9396bcb/</id>
-    <published>2022-04-06T08:56:05.000Z</published>
-    <updated>2022-04-07T04:32:29.572Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>System.out.println()</li><li>打断点调试<ul><li>step over：跳过代码</li><li>step into：进入方法</li><li>step return：离开方法返回</li><li>resume：执行到下一个断点或者直接结束</li><li>drop to frame：跳到方法首行</li></ul></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;System.out.println()&lt;/li&gt;
-&lt;li&gt;打断点调试&lt;ul&gt;
-&lt;li&gt;step over：跳过代码&lt;/li&gt;
-&lt;li&gt;step into：进入方法&lt;/li&gt;
-&lt;li&gt;step return：离开方法返回&lt;/li&gt;
-&lt;li&gt;resume：执行到下</summary>
       
     
     
