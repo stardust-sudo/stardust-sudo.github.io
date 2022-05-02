@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>基本的SELECT语句MySQL笔记 • stardust's blog</title><meta name="description" content="基本的SELECT语句MySQL笔记 - stardust"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="stardust's blog"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="stardust's blog" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="stardust's blog"><img class="logo-image" src="/logo.svg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">ABOUT</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">基本的SELECT语句MySQL笔记</h1><div class="post-info"><a></a>2022-04-18</div><div class="post-content"><h1 id="SQL概述"><a href="#SQL概述" class="headerlink" title="SQL概述"></a>SQL概述</h1><h2 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h2><ul>
+<li><p>DDL(Data Definition Language，数据定义语言)，这些语句定义了不同的数据库、表、视图、索引等数据库对象、还可以用来创建、删除、修改数据库和数据表的结构</p>
+<ul>
+<li>主要的语句关键字包括CREATE、DROP、ALTER、RENAME、TRUNCATE（清空数据）等</li>
+</ul>
+</li>
+<li><p>DML(Data Manipulation Language，数据操作语言)，用于添加、删除、更新和查询数据库记录，并检查数据完整性</p>
+<ul>
+<li>主要的语句关键字包括INSERT、DELETE、UPDATE、SELECT等</li>
+<li>SELECT是SQL语言的基础，最为重要</li>
+</ul>
+</li>
+<li><p>DCL(Data Control Language，数据控制语言)，用于定义数据库、表、字段、用户的访问权限和安全级别</p>
+<ul>
+<li>主要的语句关键字包括GRANT、REVOKE、COMMIT、ROLLBACK、SAVEPOINT等</li>
+</ul>
+</li>
+</ul>
+<h1 id="SQL语言的规则与规范"><a href="#SQL语言的规则与规范" class="headerlink" title="SQL语言的规则与规范"></a>SQL语言的规则与规范</h1><h2 id="基本规则"><a href="#基本规则" class="headerlink" title="基本规则"></a>基本规则</h2><ul>
+<li>各个子句分行写</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Emp;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> emp</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1001</span>,<span class="string">&#x27;TOM&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>语句以；、\g或者\G结尾，;、\g与\G效果不同</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show create table employee;</span><br><span class="line">+----------+---------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Table    | Create Table                                                                                                              |</span><br><span class="line">+----------+---------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| employee | CREATE TABLE `employee` (</span><br><span class="line">  `id` int DEFAULT NULL,</span><br><span class="line">  `name` varchar(15) DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 |</span><br><span class="line">+----------+---------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">1 row in set (0.04 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; show create table employee\g</span><br><span class="line">+----------+---------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Table    | Create Table                                                                                                              |</span><br><span class="line">+----------+---------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| employee | CREATE TABLE `employee` (</span><br><span class="line">  `id` int DEFAULT NULL,</span><br><span class="line">  `name` varchar(15) DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 |</span><br><span class="line">+----------+---------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; show create table employee\G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">       Table: employee</span><br><span class="line">Create Table: CREATE TABLE `employee` (</span><br><span class="line">  `id` int DEFAULT NULL,</span><br><span class="line">  `name` varchar(15) DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字符串、日期时间类型的变量需要使用一对单引号’’表示</li>
+<li>列的别名使用双引号””表示，不建议省略as</li>
+</ul>
+<h2 id="SQL大小写规范"><a href="#SQL大小写规范" class="headerlink" title="SQL大小写规范"></a>SQL大小写规范</h2><ul>
+<li>MySQL在Windows环境下大小写不敏感</li>
+<li>MySQL在Linux环境下大小写不敏感<ul>
+<li>数据库名、表名、表的别名、变量名是严格区分大小写的</li>
+<li>关键字、函数名、列名（或字段名）、列的别名（或字段的别名）是忽略大小写的</li>
+</ul>
+</li>
+<li>推荐采用统一的书写规范<ul>
+<li>数据库名、表名、表别名、字段名、字段别名等都小写</li>
+<li>SQL关键字、函数名、绑定变量等都大写</li>
+</ul>
+</li>
+</ul>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 单行注释</span><br><span class="line"><span class="comment">-- 单行注释</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="导入现有数据"><a href="#导入现有数据" class="headerlink" title="导入现有数据"></a>导入现有数据</h2><ol>
+<li>命令行下输入<code>source 文件的全路径名</code></li>
+<li>基于具体的图形化界面工具导入数据</li>
+</ol>
+<h1 id="基本的SELECT语句"><a href="#基本的SELECT语句" class="headerlink" title="基本的SELECT语句"></a>基本的SELECT语句</h1><h2 id="SELECT-…"><a href="#SELECT-…" class="headerlink" title="SELECT …"></a>SELECT …</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="number">9</span><span class="operator">/</span><span class="number">2</span></span><br><span class="line"><span class="keyword">FROM</span> DUAL;# DUAL伪表</span><br></pre></td></tr></table></figure>
+
+<h2 id="SELECT-…-FROM-…"><a href="#SELECT-…-FROM-…" class="headerlink" title="SELECT … FROM …"></a>SELECT … FROM …</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># <span class="operator">*</span>表示表中所有字段</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,last_name,salary</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="列的别名"><a href="#列的别名" class="headerlink" title="列的别名"></a>列的别名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">as</span>全称alias（别名），可以省略</span><br><span class="line"># 列的别名可以用一对&quot;&quot;引起来</span><br><span class="line"><span class="keyword">SELECT</span> employee_id emp_id,last_name <span class="keyword">AS</span> lname,department_id &quot;部门id&quot;, salary <span class="operator">*</span> <span class="number">12</span> &quot;annual sal&quot;</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="去除重复行"><a href="#去除重复行" class="headerlink" title="去除重复行"></a>去除重复行</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> department_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="空值参与计算"><a href="#空值参与计算" class="headerlink" title="空值参与计算"></a>空值参与计算</h2><p>空值：null</p>
+<p>空值参与运算，结果为空值null</p>
+<h2 id="着重号-96-96"><a href="#着重号-96-96" class="headerlink" title="着重号&#96;&#96;"></a>着重号&#96;&#96;</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 关键字作为表名，使用``着重号区别于关键字</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> `<span class="keyword">order</span>`;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询常数"><a href="#查询常数" class="headerlink" title="查询常数"></a>查询常数</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;Company&#x27;</span>,<span class="number">123</span>,employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h1 id="显示表结构"><a href="#显示表结构" class="headerlink" title="显示表结构"></a>显示表结构</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESCRIBE</span> employees;</span><br><span class="line"><span class="keyword">DESC</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h1 id="过滤数据"><a href="#过滤数据" class="headerlink" title="过滤数据"></a>过滤数据</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> deoartment_id <span class="operator">=</span> <span class="number">90</span>;</span><br></pre></td></tr></table></figure>
+
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/18/f70d0a6aa832/">prev</a><a class="next" href="/2022/04/16/ac67afe54464/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="https://stardust-sudo.github.io">stardust</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

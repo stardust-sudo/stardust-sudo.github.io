@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>排序与分页MySQL笔记 • stardust's blog</title><meta name="description" content="排序与分页MySQL笔记 - stardust"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="stardust's blog"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="stardust's blog" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="stardust's blog"><img class="logo-image" src="/logo.svg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">ABOUT</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">排序与分页MySQL笔记</h1><div class="post-info"><a></a>2022-04-18</div><div class="post-content"><h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h2 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h2><ul>
+<li>使用ORDER BY子句进行排序<ul>
+<li>ASC(ascend) 升序</li>
+<li>DESC(descend) 降序</li>
+</ul>
+</li>
+<li>ORDER BY子句放在SELECT语句结尾</li>
+<li>没有使用ORDER BY子句的情况下，默认呈现的顺序是数据添加的先后顺序</li>
+<li>ORDER BY子句默认使用ASC升序</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列的别名只能在ORDER BY子句中使用，不能在WHERE子句中使用</li>
+<li>二级排序</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 显示员工排序，按照department_id的降序排列，salary的升序排序</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,salary,department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> department_id <span class="keyword">DESC</span>, salary <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line">LIMIT <span class="number">0</span>,<span class="number">20</span>;#偏移量为<span class="number">0</span>，显示的条目数为<span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line">LIMIT <span class="number">20</span>;#偏移量省略时默认为<span class="number">0</span>，显示的条目数为<span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 每页显示pageSize条记录，此时显示第pageNo页</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line">LIMIT (pageNo<span class="number">-1</span>)<span class="operator">*</span>pageSize,pageSize;</span><br></pre></td></tr></table></figure>
+
+<p>WHERE … ORDER BY … LIMIT声明顺序如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary <span class="operator">&gt;</span> <span class="number">6000</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">0</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>MySQL8.0新特性：LIMIT … OFFSET …</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line">LIMIT <span class="number">31</span>,<span class="number">2</span>;</span><br><span class="line"><span class="keyword">SELECT</span> employee_id,last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line">LIMIT <span class="number">2</span> <span class="keyword">OFFSET</span> <span class="number">31</span>;#<span class="number">2</span>表示显示的条目数，<span class="number">31</span>表示偏移量</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/19/103008253ca0/">prev</a><a class="next" href="/2022/04/18/f70d0a6aa832/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="https://stardust-sudo.github.io">stardust</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

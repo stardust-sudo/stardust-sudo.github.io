@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>聚合函数MySQL笔记 • stardust's blog</title><meta name="description" content="聚合函数MySQL笔记 - stardust"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="stardust's blog"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="stardust's blog" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="stardust's blog"><img class="logo-image" src="/logo.svg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">ABOUT</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">聚合函数MySQL笔记</h1><div class="post-info"><a></a>2022-04-28</div><div class="post-content"><h1 id="聚合函数介绍"><a href="#聚合函数介绍" class="headerlink" title="聚合函数介绍"></a>聚合函数介绍</h1><p>作用于一组数据，并对一组数据返回一个值</p>
+<h2 id="AVG-x2F-SUM"><a href="#AVG-x2F-SUM" class="headerlink" title="AVG&#x2F;SUM"></a>AVG&#x2F;SUM</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(salary),<span class="built_in">SUM</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MAX-x2F-MIN"><a href="#MAX-x2F-MIN" class="headerlink" title="MAX&#x2F;MIN"></a>MAX&#x2F;MIN</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(salary),<span class="built_in">MIN</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<h2 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT"></a>COUNT</h2><p>作用：计算指定字段在查询结果中出现的次数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(employee_id),<span class="built_in">COUNT</span>(<span class="number">2</span><span class="operator">*</span>salary),<span class="built_in">COUNT</span>(<span class="number">1</span>),<span class="built_in">COUNT</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<p>计算指定字段出现个数时，不计算NULL值的</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(commission_pct)</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<p>使用COUNT(*)&#x2F;COUNT(1)&#x2F;COUNT(具体字段)统计数据表行数，哪个效率高？</p>
+<ul>
+<li>使用MyISAM引擎的话，统计数据表行数只需要O(1)时间复杂度，因为MyISAM的数据表维护的元数据meta里面包含了row_count值，三者效率相同</li>
+<li>使用InnoDB引擎的话，三者效率：COUNT(*)&#x3D;COUNT(1)&gt;COUNT(具体字段)</li>
+</ul>
+<h1 id="GROUP-BY的使用"><a href="#GROUP-BY的使用" class="headerlink" title="GROUP BY的使用"></a>GROUP BY的使用</h1><h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#查询各个部门的平均工资</span><br><span class="line"><span class="keyword">SELECT</span> department_id, <span class="built_in">AVG</span>(salary) <span class="keyword">AS</span> avg_sal</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用多个列分组"><a href="#使用多个列分组" class="headerlink" title="使用多个列分组"></a>使用多个列分组</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#查询各个depment_id,job_id的平均工资</span><br><span class="line"><span class="keyword">SELECT</span> department_id, job_id, <span class="built_in">AVG</span>(salary) <span class="keyword">as</span> avg_sal</span><br><span class="line"><span class="keyword">from</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id,job_id;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li><p>SELECT中出现的非组函数的字段必须声明在GROUP BY中，反之，GROUP BY中声明的字段可以不出现在SELECT中</p>
+</li>
+<li><p>GROUP BY声明在FROM和WHERE后面，在ORDER BY和LIMIT前面</p>
+</li>
+<li><p>MySQL中GROUP BY中使用 WITH ROLLUP，所得结果多出一条对于整体情况的统计</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> department_id, <span class="built_in">AVG</span>(salary) <span class="keyword">AS</span> avg_sal</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id <span class="keyword">WITH</span> <span class="keyword">ROLLUP</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="HAVING的使用"><a href="#HAVING的使用" class="headerlink" title="HAVING的使用"></a>HAVING的使用</h1><ul>
+<li><p>用来过滤数据</p>
+</li>
+<li><p>如果过滤条件中使用了聚合函数，则必须使用HAVING替换WHERE</p>
+</li>
+<li><p>HAVING必须声明在GROUP BY后面</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#查询各个部门中最高工资比<span class="number">10000</span>高的部门信息</span><br><span class="line"><span class="keyword">SELECT</span> department_id, <span class="built_in">MAX</span>(salary) <span class="keyword">AS</span> max_sal</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> max_sal <span class="operator">&gt;</span> <span class="number">10000</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>推荐使用方式一，方式一效率高于方式二</li>
+<li>当过滤条件中有聚合函数，则此过滤条件必须声明在HAVING中</li>
+<li>当过滤条件中没有聚合函数，则此过滤条件声明中WHERE和HAVING都可以，但是建议声明在WHERE中</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#查询部门id为部门<span class="number">10</span>，<span class="number">20</span>，<span class="number">30</span>，<span class="number">40</span>这四个部门中最高工资比<span class="number">10000</span>高的部门信息</span><br><span class="line">#方式一</span><br><span class="line"><span class="keyword">SELECT</span> department_id, <span class="built_in">MAX</span>(salary) <span class="keyword">AS</span> max_sal</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id <span class="keyword">IN</span> (<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> max_sal <span class="operator">&gt;</span> <span class="number">10000</span>;</span><br><span class="line">#方式二</span><br><span class="line"><span class="keyword">SELECT</span> department_id, <span class="built_in">MAX</span>(salary) <span class="keyword">AS</span> max_sal</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> max_sal <span class="operator">&gt;</span> <span class="number">10000</span> <span class="keyword">AND</span> department_id <span class="keyword">IN</span> (<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>);</span><br></pre></td></tr></table></figure>
+
+<p>WHERE与HAVING的对比</p>
+<ol>
+<li>从适用范围上讲，HAVING比WHERE广</li>
+<li>如果过滤条件中没有聚合函数，WHERE执行效率高于HAVING</li>
+</ol>
+<h1 id="SQL底层执行原理"><a href="#SQL底层执行原理" class="headerlink" title="SQL底层执行原理"></a>SQL底层执行原理</h1><h2 id="SELECT语句的完整结构"><a href="#SELECT语句的完整结构" class="headerlink" title="SELECT语句的完整结构"></a>SELECT语句的完整结构</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ...,...,...(存在聚合函数)</span><br><span class="line"><span class="keyword">FROM</span> ... (<span class="keyword">LEFT</span><span class="operator">/</span><span class="keyword">RIGHT</span>) <span class="keyword">JOIN</span> ... (<span class="keyword">LEFT</span><span class="operator">/</span><span class="keyword">RIGHT</span>) <span class="keyword">JOIN</span> ...</span><br><span class="line"><span class="keyword">ON</span> 多表的连接条件</span><br><span class="line"><span class="keyword">WHERE</span> 过滤条件(不包含聚合函数)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> ...,...,...</span><br><span class="line"><span class="keyword">HAVING</span> 过滤条件(包含聚合函数)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ...,...,... (<span class="keyword">ASC</span><span class="operator">/</span><span class="keyword">DESC</span>)</span><br><span class="line">LIMIT ...,...</span><br></pre></td></tr></table></figure>
+
+<h2 id="SQL执行过程"><a href="#SQL执行过程" class="headerlink" title="SQL执行过程"></a>SQL执行过程</h2><ol>
+<li>FROM … JOIN … 进行CROSS JOIN 笛卡尔积</li>
+<li>ON 多表连接条件</li>
+<li>(LEFT&#x2F;RIGHT) JOIN</li>
+<li>WHERE</li>
+<li>GROUP BY</li>
+<li>HAVING</li>
+<li>SELECT</li>
+<li>DISTINCT 去重</li>
+<li>ORDER BY</li>
+<li>LIMIT</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2022/04/28/f9d4960a668c/">prev</a><a class="next" href="/2022/04/27/8a3487bc9a8b/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="https://stardust-sudo.github.io">stardust</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>
