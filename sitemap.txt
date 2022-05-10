@@ -1,3 +1,4 @@
+https://stardust-sudo.github.io/about/index.html
 https://stardust-sudo.github.io/2022/05/10/e7c418af5440/
 https://stardust-sudo.github.io/2022/05/09/99db5ddc4314/
 https://stardust-sudo.github.io/2022/05/09/10245a42788c/
@@ -25,7 +26,6 @@ https://stardust-sudo.github.io/2022/04/16/ac67afe54464/
 https://stardust-sudo.github.io/2022/04/07/49515e6e4ef2/
 https://stardust-sudo.github.io/2022/04/14/99d515620878/
 https://stardust-sudo.github.io/2022/04/29/65fc24e8fe2c/
-https://stardust-sudo.github.io/about/index.html
 https://stardust-sudo.github.io/2022/04/24/4ee543e571ec/
 https://stardust-sudo.github.io/2022/04/24/f3dc87f0dde6/
 https://stardust-sudo.github.io/2022/04/06/b5a553aa6c84/
