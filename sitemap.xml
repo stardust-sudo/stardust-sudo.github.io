@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://stardust-sudo.github.io/2022/05/11/1f1105efdc06/</loc>
+    
+    <lastmod>2022-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://stardust-sudo.github.io/2022/05/10/dd17d1fc8715/</loc>
     
     <lastmod>2022-05-10</lastmod>
@@ -328,7 +337,7 @@
 
   <url>
     <loc>https://stardust-sudo.github.io/</loc>
-    <lastmod>2022-05-10</lastmod>
+    <lastmod>2022-05-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

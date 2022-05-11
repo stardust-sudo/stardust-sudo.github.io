@@ -6,7 +6,7 @@
   <link href="https://stardust-sudo.github.io/atom.xml" rel="self"/>
   
   <link href="https://stardust-sudo.github.io/"/>
-  <updated>2022-05-10T13:18:56.875Z</updated>
+  <updated>2022-05-11T04:37:44.834Z</updated>
   <id>https://stardust-sudo.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jQuery笔记</title>
+    <link href="https://stardust-sudo.github.io/2022/05/11/1f1105efdc06/"/>
+    <id>https://stardust-sudo.github.io/2022/05/11/1f1105efdc06/</id>
+    <published>2022-05-11T04:37:45.000Z</published>
+    <updated>2022-05-11T04:37:44.834Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="jQuery介绍"><a href="#jQuery介绍" class="headerlink" title="jQuery介绍"></a>jQuery介绍</h1><p>jQuery是辅助JavaScript开发的js类库</p><p>HelloWorld示例</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span> <span class="string">&quot;http://www.w3.org/TR/html4/loose.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入jQuery库--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../script/jquery-1.7.2.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//$()表示window.onload</span></span></span><br><span class="line"><span class="language-javascript">        $(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//$(&quot;#btnId&quot;)表示按照id查找标签</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> $btnObj =  $(<span class="string">&quot;#btnId&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            $btnObj.<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&quot;HelloWorld&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;)</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;btnId&quot;</span>&gt;</span>HelloWorld<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="jQuery核心函数"><a href="#jQuery核心函数" class="headerlink" title="jQuery核心函数"></a>jQuery核心函数</h1><p>$()是jQuery的核心函数</p><ol><li><p>传入参数为函数</p><p>表示页面加载完成之后，相当于window.onload</p></li><li><p>传入HTML字符串(例如”&lt;span&gt;abc&lt;&#x2F;span&gt;”)</p><p>会帮我们创建这些HTML标签</p></li><li><p>传入选择器字符串(例如”#btnId”)</p><p>根据这个字符串查找结点对象，例如$(“id属性值”)、$(“标签名”)和$(“.class属性值”)</p></li><li><p>传入DOM对象(例如document.getElementById(“btn01”))</p><p>会把DOM对象转换成jQuery对象</p></li></ol><h1 id="jQuery对象和DOM对象区分"><a href="#jQuery对象和DOM对象区分" class="headerlink" title="jQuery对象和DOM对象区分"></a>jQuery对象和DOM对象区分</h1><p>DOM对象：通过getElementByXXX函数查询出来的对象</p><p>jQuery对象：通过jQuery的API得到的对象，jQuery对象是DOM对象的数组+jQuery提供的一系列功能函数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dom对象转换为jQuery对象</span></span><br><span class="line"><span class="keyword">var</span> jQueryObj = $(domObj);</span><br><span class="line"><span class="comment">//jQuery对象转换为dom对象</span></span><br><span class="line"><span class="keyword">var</span> domObj = jQueryObj[<span class="number">0</span>];</span><br></pre></td></tr></table></figure><h1 id="jQuery选择器"><a href="#jQuery选择器" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h1><h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><p>#id</p><p>.class</p><p>element 标签名</p><p>* 匹配任意元素</p><p>selector1,selector2 合并选择器1和选择器2的结果合并返回，比如$(“#id01,span,p.myClass”)，其中p.myClass表示标签名必须是p标签而且class类型</p><h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p>$(ancestor descendant) 找到ancestor元素下的所有descendant元素</p><p>$(parent&gt;child) 找到parent元素下的child元素，区别于$(ancestor descendant)，$(parent&gt;child) 只找在parent元素下一级的child元素</p><p>$(prev+next) 找到所有跟在prev后面的next元素</p><p>$(prev~sibling) 找到所有在prev元素之后，与prev元素同级的sibling元素</p><h1 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h1><h2 id="基本过滤器"><a href="#基本过滤器" class="headerlink" title="基本过滤器"></a>基本过滤器</h2><p>$(“li:first”) 获取匹配的第一个元素</p><p>$(“input:not(:checked)”)查找所有未选中的input元素</p><p>$(“tr:gt(2)”) 查找索引小于2的tr元素</p><h2 id="内容过滤器"><a href="#内容过滤器" class="headerlink" title="内容过滤器"></a>内容过滤器</h2><p>$(“div:contains(‘John’)”)</p><p>$(“td:parent”) 查找所有含有子元素或者文本的元素</p><p>$(“div:has(p)”)查找所有含有p元素的div元素</p><h2 id="属性过滤器"><a href="#属性过滤器" class="headerlink" title="属性过滤器"></a>属性过滤器</h2><p>$(“div[id]”) 查找所有含有id属性的div元素</p><p>$(“input[name&#x3D;’newsletter’]”) 查找name属性为newsletter的input元素</p><p>$(“input[name*&#x3D;’news’]”) 查找name属性包含news的input元素</p><h2 id="表单过滤器"><a href="#表单过滤器" class="headerlink" title="表单过滤器"></a>表单过滤器</h2><p>$(“:text”)查找所有的单行文本框</p><p>$(“:hidden”)查找所有不可见元素</p><p>$(“:checked”)查找所有选中的元素</p><h1 id="jQuery的属性操作"><a href="#jQuery的属性操作" class="headerlink" title="jQuery的属性操作"></a>jQuery的属性操作</h1><p>$(“div”).html() 它可以设置和获取起始标签和结束标签中的内容，等价于dom对象的innerHTML</p><p>$(“div”).text() 它可以设置和获取起始标签和结束标签中的文本内容，等价于dom对象的innerText</p><p>$(“div”).val() 它可以设置和获取表单项的value属性值，等价于dom对象的value</p><p>$(“div”).attr() 它可以设置和获取属性值，包括自定义属性，不推荐操作checked、readOnly、selected、disabled等等</p><p>$(“div”).prop() 它可以设置和获取属性值，只推荐操作checked、readOnly、selected、disabled等等</p><h1 id="dom的增删改"><a href="#dom的增删改" class="headerlink" title="dom的增删改"></a>dom的增删改</h1><h2 id="内部插入"><a href="#内部插入" class="headerlink" title="内部插入"></a>内部插入</h2><p>a.appendTo(b) 把a插入到b的子元素末尾，成为最后一个子元素</p><p>a.prependTo(b) 把a插入到b的所有子元素开头，成为第一个子元素</p><h2 id="外部插入"><a href="#外部插入" class="headerlink" title="外部插入"></a>外部插入</h2><p>a.insertAfter(b) 得到ba</p><p>a.insertBefore(b) 得到ab</p><h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>a.replaceWith(b) 用b替换a</p><p>a.replaceAll(b) 用a替换所有b</p><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>a.remove() 删除a标签</p><p>a.empty() 清空a标签内的内容</p><h1 id="CSS样式操作"><a href="#CSS样式操作" class="headerlink" title="CSS样式操作"></a>CSS样式操作</h1><p>addClass()</p><p>removeClass()</p><p>toggleClass() 有就删除，没有就添加样式</p><p>offset() 获取和设置元素的坐标</p><h1 id="jQuery动画"><a href="#jQuery动画" class="headerlink" title="jQuery动画"></a>jQuery动画</h1><h2 id="基本动画"><a href="#基本动画" class="headerlink" title="基本动画"></a>基本动画</h2><p>show()</p><p>hide() </p><p>toggle() 显示的隐藏，隐藏的显示</p><h2 id="淡入淡出动画"><a href="#淡入淡出动画" class="headerlink" title="淡入淡出动画"></a>淡入淡出动画</h2><p>fadeIn()</p><p>fadeOut() </p><p>fadeTo() 在指定市场内将透明度修改到指定值，0~1</p><p>fadeToggle() 淡入&#x2F;淡出切换</p><h1 id="jQuery事件操作"><a href="#jQuery事件操作" class="headerlink" title="jQuery事件操作"></a>jQuery事件操作</h1><p>$(function(){})和window.onload&#x3D;function(){}的区别？</p><ul><li>页面加载完成之后，jQuery先于原生js执行</li><li>例如需要dom对象需要加载图片，解析完dom对象，还没加载图片，jQuery就执行了，等到标签内容比如图片都加载完了，才运行原生js</li><li>加载页面之后，js只执行最后一个赋值onload的函数，jQuery的$(function(){})定义几个执行几个</li></ul><h2 id="事件方法"><a href="#事件方法" class="headerlink" title="事件方法"></a>事件方法</h2><p>click()</p><p>mouseover()</p><p>mouseout()</p><p>bind(“click”,function(){}) 可以给元素一次性绑定一个或者多个事件</p><p>one() 使用上跟bind一致，但是只触发一次</p><p>unbind(“click,mouseout”) 解绑</p><p>$(“div”).live(“click”,“function(){}”) 也是用来绑定事件，div下加了新的元素，也能绑定相应事件</p><h2 id="事件的冒泡"><a href="#事件的冒泡" class="headerlink" title="事件的冒泡"></a>事件的冒泡</h2><p>事件的冒泡是指，父子元素同时监听同一个事件，当触发子元素的事件时，同一个事件也被传递到了父元素的事件里去响应</p><p>举例</p><p>&lt;div&gt;&lt;span&gt;text&lt;\span&gt;&lt;&#x2F;div&gt;</p><p>span标签的点击事件触发之后，div标签的点击事件也被触发</p><p>阻止事件冒泡，只需要在子元素函数体内return false</p><h2 id="js事件对象"><a href="#js事件对象" class="headerlink" title="js事件对象"></a>js事件对象</h2><p>js事件对象，即封装触发的事件信息的一个javascript对象</p><p>function(event) event即事件对象</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;jQuery介绍&quot;&gt;&lt;a href=&quot;#jQuery介绍&quot; class=&quot;headerlink&quot; title=&quot;jQuery介绍&quot;&gt;&lt;/a&gt;jQuery介绍&lt;/h1&gt;&lt;p&gt;jQuery是辅助JavaScript开发的js类库&lt;/p&gt;
+&lt;p&gt;HelloWorld示例</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>CS自学过程反思</title>
@@ -403,28 +424,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;数值函数&quot;&gt;&lt;a href=&quot;#数值函数&quot; class=&quot;headerlink&quot; title=&quot;数值函数&quot;&gt;&lt;/a&gt;数值函数&lt;/h1&gt;&lt;h2 id=&quot;基本函数&quot;&gt;&lt;a href=&quot;#基本函数&quot; class=&quot;headerlink&quot; title=&quot;基本函数&quot;&gt;&lt;/a</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>化工专业本科回忆帖</title>
-    <link href="https://stardust-sudo.github.io/2022/04/24/f3dc87f0dde6/"/>
-    <id>https://stardust-sudo.github.io/2022/04/24/f3dc87f0dde6/</id>
-    <published>2022-04-24T13:28:07.000Z</published>
-    <updated>2022-04-24T13:28:10.259Z</updated>
-    
-    <content type="html"><![CDATA[<p>本科就读于化工专业很强势的学校，信息学院的院士也是搞化工的哈哈。我按照时间的顺序叙述，由于毕业两三年了，记忆可能有一些小差错。</p><p>大一的时候，就是各种基础课，高数线代等等，还有C语言这些课，工科该有的基础课都有。</p><p>大二的时候，开始上四大化学了，比较喜欢物理化学，有机学得不好，无机化学无感，分析化学挺头痛的。这时候各种实验课也出现了，基本上每一门化学课都对应有实验课，大学物理也有实验课，实验楼都在比较远的地方，所以上实验课需要跑很远。实验课课上操作还好，主要头疼的是预习报告和实验报告，都没什么太大意义，就是大段大段的写字，我记得巅峰时刻一周三份预习报告，三份实验报告，写起来真的挺累的。</p><p>大三的时候，上课上三传一反，化工原理，化工热力学，反应工程等等，我还是挺喜欢的，很工科哈哈。我记得因为学校评了一个什么认证，所以加了很多课，然后每一门课都有实验课，所以整体的学业压力非常大。大三很多同学都进实验室了，做大创或者做实验发文章，都是为了保研做准备。</p><p>大四的时候，上半学期还是一堆课，分离工程什么的，还有一堆实验课。然后上完课以后，还有实习，去金山的化工厂，早上很早就要起来，坐班车一两个小时到化工园区。说是实习，实际上就是听听讲座，逛逛园区，味道还挺大的。里面的工程师不会让你干活的，谁放心呢。记得里面的食堂做的甜点还挺好吃的。上半学期结束就是考研了。下半学期就是搞毕业论文了，有两种，做模拟的和做实验的。做模拟挺爽的，待在宿舍就行。做实验的就要天天去实验室了，这时候可以感受一下化工读研是什么状态，化工读研我放后面讲。本科毕业论文还是比较水的，那些教授说着我很严格的，实际上还是放你过的。</p><p>整体上我评价一下化工本科生活的话，那就是课多实验多，很累很辛苦。</p><p>最后讲一下同学的去向吧。一些同学直博清华天大化工。一些同学转行了，去了金融业，或者跨考去了CS，还有去国外读研CS的。大部分同学都是保研考研了本校化工。化工读研还是挺苦的，每天在实验室从早上八点到晚上十一点做实验，导师push你发论文，还有做项目。再说说就业情况，有同学去了会计所，也有码农的，留在化工行业的话，有同学本科毕业进了中石油，研究生毕业的话，可以去设计院还有外企比如巴斯夫之类，还有去化工零售行业当客户经理。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;本科就读于化工专业很强势的学校，信息学院的院士也是搞化工的哈哈。我按照时间的顺序叙述，由于毕业两三年了，记忆可能有一些小差错。&lt;/p&gt;
-&lt;p&gt;大一的时候，就是各种基础课，高数线代等等，还有C语言这些课，工科该有的基础课都有。&lt;/p&gt;
-&lt;p&gt;大二的时候，开始上四大化学了，比较</summary>
       
     
     
