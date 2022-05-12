@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>Tomcat笔记 • stardust's blog</title><meta name="description" content="Tomcat笔记 - stardust"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="stardust's blog"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="stardust's blog" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="stardust's blog"><img class="logo-image" src="/logo.svg" alt="logo"></a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">ABOUT</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Tomcat笔记</h1><div class="post-info"><a></a>2022-05-12</div><div class="post-content"><h1 id="JavaWeb的概念"><a href="#JavaWeb的概念" class="headerlink" title="JavaWeb的概念"></a>JavaWeb的概念</h1><p>request&#x2F;response</p>
+<h1 id="Web资源的分类"><a href="#Web资源的分类" class="headerlink" title="Web资源的分类"></a>Web资源的分类</h1><p>静态资源：html&#x2F;css&#x2F;js&#x2F;txt&#x2F;mp4&#x2F;jpg</p>
+<p>动态资源：jsp页面&#x2F;Servlet程序</p>
+<h1 id="常用的服务器"><a href="#常用的服务器" class="headerlink" title="常用的服务器"></a>常用的服务器</h1><p>Tomcat&#x2F;Jboss&#x2F;GlassFish&#x2F;Resin&#x2F;WebLogic</p>
+<h1 id="Tomcat的使用"><a href="#Tomcat的使用" class="headerlink" title="Tomcat的使用"></a>Tomcat的使用</h1><ol>
+<li><p>服务器的安装</p>
+<p>解压压缩包即可</p>
+</li>
+<li><p>Tomcat的目录</p>
+<ul>
+<li>bin 可执行程序</li>
+<li>conf 配置</li>
+<li>lib jar包</li>
+<li>logs 日志</li>
+<li>temp 临时文件</li>
+<li>webapps 部署的web工程</li>
+<li>work 运行时jsp翻译为Servlet的源码，和session钝化的目录<ul>
+<li>钝化： 当服务器正常关闭时，还存活着的session (在设置时间内没有销毁) 会随着服务器的关闭被以文件 (“SESSIONS.ser”)的形式存储在tomcat 的work 目录下，这个过程叫做Session 的钝化。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>启动Tomcat</p>
+<ul>
+<li><p>双击tomcat\bin\startup.bat，打开浏览器，访问<a href="http://localhost:8080和http://127.0.0.1:8080，测试是否安装成功">http://localhost:8080和http://127.0.0.1:8080，测试是否安装成功</a></p>
+</li>
+<li><p>cmd中，进入tomcat\bin目录，运行<code>catalina run</code>命令</p>
+</li>
+</ul>
+</li>
+<li><p>停止Tomcat</p>
+<ul>
+<li>关闭窗口</li>
+<li>在Tomcat窗口敲下CRTL+C</li>
+<li>双击tomcat\bin\shutdown.bat</li>
+</ul>
+</li>
+<li><p>修改Tomcat的端口号</p>
+<p>Tomcat默认端口号是8080，找到tomcat\config\server.xml找到Connector标签，修改port属性，重启Tomcat服务器生效</p>
+</li>
+<li><p>部署web工程到Tomcat服务器</p>
+<ul>
+<li><p>把web文件夹复制到tomcat\webapps目录下，访问localhost:8080&#x2F;book&#x2F;index.html即可</p>
+</li>
+<li><p>进入tomcat\conf\Catalina\localhost，创建配置文件xxx.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">Context表示一个工程上下文</span></span><br><span class="line"><span class="comment">path表示工程的访问路径：/abc</span></span><br><span class="line"><span class="comment">docBase表示实际的工程目录</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">&quot;/abc&quot;</span> <span class="attr">docBase</span>=<span class="string">&quot;E:\web03_war_exploded&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>ROOT工程的访问&#x2F;默认index.html页面的访问</p>
+<ul>
+<li><a href="http://ip:port/，没有工程名，默认访问ROOT工程">http://ip:port/，没有工程名，默认访问ROOT工程</a></li>
+<li><a href="http://ip:port/工程名/，没有资源名。默认访问index.html">http://ip:port/工程名/，没有资源名。默认访问index.html</a></li>
+</ul>
+</li>
+<li><p>IDEA整合Tomcat服务器</p>
+<p>File-&gt;Settings-&gt;Build-&gt;Application Servers-&gt;添加Tomcat Server</p>
+</li>
+<li><p>IDEA中动态web工程的操作</p>
+<p>New-&gt;Module-&gt;Java Enterprise-&gt;选择Tomcat版本&#x2F;在Additional Libraries and Frameworks下勾选Web Application&#x2F;勾选Create web.xml&#x2F;点击Next</p>
+</li>
+<li><p>动态web工程目录</p>
+<ul>
+<li>src 自己编写的java源代码</li>
+<li>web 用来存放web工程的资源文件，比如html&#x2F;css&#x2F;js文件</li>
+<li>web\WEB-INF 此目录受服务器保护，浏览器无法直接访问到此目录下的内容</li>
+<li>web\WEB-INF\web.xml 动态web工程的配置部署文件，可以配置web工程的组件，比如：Servlet组件&#x2F;Filter过滤器&#x2F;Listener监听器&#x2F;Session超时</li>
+<li>web\WEB-INF\lib 存放第三方的jar包（IDEA还需要自己配置导入）</li>
+</ul>
+</li>
+<li><p>在IDEA上部署工程到Tomcat上运行</p>
+</li>
+<li><p>配置资源热部署：修改On frame deactivation，热部署指的是修改文件以后，不用重启服务器就能更新页面</p>
+</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a class="next" href="/2022/05/11/7338c512be75/">next</a></div><div class="copyright"><p>&copy; 2022 <a href="https://stardust-sudo.github.io">stardust</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>
